@@ -1,132 +1,249 @@
 /* ============================================
    RESET E ESTILOS BASE
    ============================================ */
+
    * {
+    /* margin: 0; → Remove as margens padrão que browsers aplicam a todos elementos */
     margin: 0;
+    
+    /* padding: 0; → Remove o preenchimento interno padrão de todos elementos */
     padding: 0;
+    
+    /* box-sizing: border-box; → Inclui borda e padding no cálculo total de largura/altura */
     box-sizing: border-box;
 }
 
 html {
-    font-size: 16px; /* Define tamanho base para rem calculations */
+    /* font-size: 16px; → Define tamanho base da fonte (1rem = 16px), usado como referência para cálculos rem */
+    font-size: 16px;
+    
+    /* scroll-behavior: smooth; → Faz a rolagem da página ser suave ao clicar em âncoras */
     scroll-behavior: smooth;
 }
 
 body {
+    /* background-color: #141414; → Define cor de fundo escura (tema Netflix-like) */
     background-color: #141414;
+    
+    /* color: #ffffff; → Define cor padrão do texto em branco */
     color: #ffffff;
+    
+    /* font-family: ... → Define a fonte padrão: Segoe UI (Windows), Tahoma, Geneva, Verdana e sans-serif genérica */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* min-height: 100vh; → Define altura mínima como 100% da janela de visualização (viewport height) */
     min-height: 100vh;
+    
+    /* display: flex; → Ativa o modelo Flexbox para organizar itens filhos em linha/coluna */
     display: flex;
+    
+    /* justify-content: center; → Centraliza itens horizontalmente no eixo principal do flexbox */
     justify-content: center;
+    
+    /* align-items: center; → Centraliza itens verticalmente no eixo transversal do flexbox */
     align-items: center;
+    
+    /* padding: 20px; → Adiciona espaço interno de 20px em todos os lados do body */
     padding: 20px;
+    
+    /* line-height: 1.6; → Define altura de linha como 1.6 vezes o tamanho da fonte (melhora legibilidade) */
     line-height: 1.6;
 }
 
 main {
+    /* width: 100%; → Define largura como 100% do container pai (ocupa toda a largura disponível) */
     width: 100%;
+    
+    /* max-width: 1200px; → Limita a largura máxima a 1200px, mantendo layout legível em telas grandes */
     max-width: 1200px;
+    
+    /* text-align: center; → Alinha todo o conteúdo de texto ao centro horizontalmente */
     text-align: center;
 }
 
 /* ============================================
    TÍTULOS E CABEÇALHOS
    ============================================ */
+
 h1 {
+    /* font-size: 3.5rem; → Define tamanho da fonte em 3.5 vezes o tamanho base (16px * 3.5 = 56px) */
     font-size: 3.5rem;
+    
+    /* font-weight: 700; → Define peso da fonte em 700 (equivalente a "bold") para texto mais espesso */
     font-weight: 700;
+    
+    /* margin-bottom: 60px; → Adiciona espaço vazio de 60px abaixo do título */
     margin-bottom: 60px;
+    
+    /* letter-spacing: 2px; → Aumenta o espaço entre as letras em 2px, deixando texto mais espaçado */
     letter-spacing: 2px;
+    
+    /* text-transform: uppercase; → Transforma todo o texto em MAIÚSCULAS */
     text-transform: uppercase;
+    
+    /* animation: fadeInDown 0.8s ease-out; → Aplica animação "fadeInDown" que dura 0.8s com easing "ease-out" */
     animation: fadeInDown 0.8s ease-out;
+    
+    /* word-wrap: break-word; → Quebra palavras longas para a próxima linha ao invés de ultrapassar o container */
     word-wrap: break-word;
 }
 
 /* ============================================
    SEÇÃO DE PERFIS
    ============================================ */
+
 .profiles {
+    /* width: 100%; → Define largura como 100% do container pai */
     width: 100%;
 }
 
 .profiles-list {
+    /* list-style: none; → Remove os pontos/bullets padrão da lista (ul/ol) */
     list-style: none;
+    
+    /* display: flex; → Ativa flexbox para organizar itens em linha */
     display: flex;
+    
+    /* justify-content: center; → Centraliza os itens horizontalmente */
     justify-content: center;
+    
+    /* gap: 60px; → Define espaço de 60px entre cada item flex (sem afetar margins) */
     gap: 60px;
+    
+    /* flex-wrap: wrap; → Permite que itens quebrem para a próxima linha em telas pequenas */
     flex-wrap: wrap;
 }
 
 .profile {
+    /* cursor: pointer; → Muda o cursor do mouse para "mão de apontamento" indicando clicabilidade */
     cursor: pointer;
+    
+    /* transition: transform 0.3s ease, filter 0.3s ease; → Suaviza animações de transform e filter em 0.3s */
     transition: transform 0.3s ease, filter 0.3s ease;
+    
+    /* max-width: 250px; → Limita a largura máxima do perfil em 250px */
     max-width: 250px;
+    
+    /* position: relative; → Define posicionamento relativo para permitir posicionamento absoluto de filhos */
     position: relative;
+    
+    /* display: flex; → Ativa flexbox neste elemento */
     display: flex;
+    
+    /* flex-direction: column; → Organiza itens filhos verticalmente (de cima para baixo) */
     flex-direction: column;
+    
+    /* align-items: center; → Centraliza itens filhos horizontalmente */
     align-items: center;
 }
 
-/* Para dispositivos touch, remover hover effects complexos */
+/* Detecta dispositivos com entrada por toque (touch) e sem suporte a hover */
 @media (hover: none) and (pointer: coarse) {
     .profile {
+        /* transition: all 0.2s ease; → Suaviza TODAS as mudanças em 0.2s em dispositivos touch */
         transition: all 0.2s ease;
     }
 }
 
 .profile img {
+    /* width: 200px; → Define largura fixa da imagem em 200px */
     width: 200px;
+    
+    /* height: 200px; → Define altura fixa da imagem em 200px (cria quadrado) */
     height: 200px;
+    
+    /* border-radius: 10px; → Arredonda os cantos da imagem com raio de 10px */
     border-radius: 10px;
+    
+    /* object-fit: cover; → Faz a imagem cobrir todo o espaço 200x200, cortando se necessário (sem distorção) */
     object-fit: cover;
+    
+    /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); → Adiciona sombra: 0px x, 8px y, 24px blur, 50% opaco preto */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    
+    /* transition: all 0.3s ease; → Suaviza TODAS as transições da imagem em 0.3s */
     transition: all 0.3s ease;
+    
+    /* display: block; → Define imagem como bloco (remove espaço extra em baixo) */
     display: block;
 }
 
+/* Estilos aplicados ao passar o mouse OU focar no perfil */
 .profile:hover img,
 .profile:focus-within img {
+    /* transform: scale(1.1); → Aumenta a imagem em 10% (1.1 = 110% do tamanho original) */
     transform: scale(1.1);
+    
+    /* border: 3px solid #e50914; → Adiciona borda vermelha Netflix (3px de espessura) */
     border: 3px solid #e50914;
+    
+    /* box-shadow: ... → Duas sombras: glow vermelho (0 0 20px) + sombra padrão com 0.8 opacidade */
     box-shadow: 0 0 20px rgba(229, 9, 20, 0.8), 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 figcaption {
+    /* margin-top: 20px; → Adiciona espaço de 20px acima do nome/legenda */
     margin-top: 20px;
+    
+    /* font-size: 1.5rem; → Define tamanho da fonte em 1.5 vezes o tamanho base (24px) */
     font-size: 1.5rem;
+    
+    /* font-weight: 500; → Define peso da fonte em 500 (semi-negrito, entre normal e bold) */
     font-weight: 500;
+    
+    /* letter-spacing: 1px; → Aumenta espaço entre letras em 1px */
     letter-spacing: 1px;
+    
+    /* transition: color 0.3s ease; → Suaviza mudança de cor em 0.3s */
     transition: color 0.3s ease;
+    
+    /* width: 100%; → Ocupa 100% da largura do container pai */
     width: 100%;
+    
+    /* overflow: hidden; → Oculta conteúdo que ultrapassar o limite (preparado para ellipsis) */
     overflow: hidden;
+    
+    /* text-overflow: ellipsis; → Adiciona "..." quando texto é cortado (overflow) */
     text-overflow: ellipsis;
 }
 
+/* Estilos para o nome ao passar mouse OU focar no perfil */
 .profile:hover figcaption,
 .profile:focus-within figcaption {
+    /* color: #e50914; → Muda a cor do nome para vermelho Netflix */
     color: #e50914;
 }
 
 /* ============================================
    ANIMAÇÕES
    ============================================ */
+
+/* Keyframe "fadeInDown": anima entrada suave descendo */
 @keyframes fadeInDown {
     from {
+        /* opacity: 0; → Começa totalmente transparente (invisível) */
         opacity: 0;
+        
+        /* transform: translateY(-30px); → Começa 30px acima da posição final */
         transform: translateY(-30px);
     }
     to {
+        /* opacity: 1; → Termina totalmente visível */
         opacity: 1;
+        
+        /* transform: translateY(0); → Retorna à posição original (0px de deslocamento) */
         transform: translateY(0);
     }
 }
 
+/* Keyframe "fadeIn": anima apenas opacidade */
 @keyframes fadeIn {
     from {
+        /* opacity: 0; → Começa invisível */
         opacity: 0;
     }
     to {
+        /* opacity: 1; → Termina visível */
         opacity: 1;
     }
 }
@@ -134,45 +251,72 @@ figcaption {
 /* ============================================
    MOBILE FIRST - DISPOSITIVOS PEQUENOS (0px a 480px)
    ============================================ */
+
 @media (max-width: 480px) {
     html {
+        /* font-size: 14px; → Reduz tamanho base para 14px em celulares (1rem = 14px) */
         font-size: 14px;
     }
 
     body {
+        /* padding: 16px; → Reduz padding interno para 16px em telas pequenas */
         padding: 16px;
+        
+        /* min-height: 100vh; → Mantém altura mínima de 100% da viewport */
         min-height: 100vh;
     }
 
     h1 {
+        /* font-size: 1.8rem; → Reduz título para 1.8rem (25.2px em base 14px) */
         font-size: 1.8rem;
+        
+        /* margin-bottom: 30px; → Reduz espaço abaixo do título para 30px */
         margin-bottom: 30px;
+        
+        /* letter-spacing: 1px; → Reduz espaçamento entre letras para 1px */
         letter-spacing: 1px;
     }
 
     .profiles-list {
+        /* gap: 20px; → Reduz espaço entre itens para 20px */
         gap: 20px;
+        
+        /* padding: 0 8px; → Adiciona padding lateral de 8px */
         padding: 0 8px;
     }
 
     .profile {
+        /* max-width: 120px; → Reduz largura máxima para 120px */
         max-width: 120px;
     }
 
     .profile img {
+        /* width: 120px; → Reduz largura da imagem para 120px */
         width: 120px;
+        
+        /* height: 120px; → Reduz altura da imagem para 120px */
         height: 120px;
+        
+        /* border-radius: 8px; → Reduz arredondamento dos cantos para 8px */
         border-radius: 8px;
     }
 
     .profile:hover img {
+        /* transform: scale(1.08); → Aumenta apenas 8% (menos agressivo que desktop) */
         transform: scale(1.08);
+        
+        /* border: 2px solid #e50914; → Borda mais fina (2px ao invés de 3px) */
         border: 2px solid #e50914;
     }
 
     figcaption {
+        /* font-size: 0.9rem; → Reduz tamanho do nome para 0.9rem (12.6px) */
         font-size: 0.9rem;
+        
+        /* margin-top: 12px; → Reduz espaço acima do nome para 12px */
         margin-top: 12px;
+        
+        /* letter-spacing: 0.5px; → Reduz espaçamento entre letras para 0.5px */
         letter-spacing: 0.5px;
     }
 }
@@ -180,33 +324,50 @@ figcaption {
 /* ============================================
    SMALL PHONES - Dispositivos pequenos (481px a 600px)
    ============================================ */
+
 @media (min-width: 481px) and (max-width: 600px) {
     html {
+        /* font-size: 15px; → Define tamanho base de 15px para phones pequenos */
         font-size: 15px;
     }
 
     h1 {
+        /* font-size: 2rem; → Aumenta título para 2rem (30px) */
         font-size: 2rem;
+        
+        /* margin-bottom: 35px; → Define espaço abaixo para 35px */
         margin-bottom: 35px;
     }
 
     .profiles-list {
+        /* gap: 25px; → Define espaço entre itens em 25px */
         gap: 25px;
+        
+        /* padding: 0 10px; → Padding lateral de 10px */
         padding: 0 10px;
     }
 
     .profile {
+        /* max-width: 140px; → Aumenta largura máxima para 140px */
         max-width: 140px;
     }
 
     .profile img {
+        /* width: 140px; → Define imagem em 140px */
         width: 140px;
+        
+        /* height: 140px; → Define altura em 140px */
         height: 140px;
+        
+        /* border-radius: 9px; → Arredondamento de 9px */
         border-radius: 9px;
     }
 
     figcaption {
+        /* font-size: 1rem; → Define tamanho do nome em 1rem (15px) */
         font-size: 1rem;
+        
+        /* margin-top: 15px; → Espaço acima do nome em 15px */
         margin-top: 15px;
     }
 }
@@ -214,33 +375,50 @@ figcaption {
 /* ============================================
    TABLETS - Dispositivos médios (601px a 768px)
    ============================================ */
+
 @media (min-width: 601px) and (max-width: 768px) {
     h1 {
+        /* font-size: 2.5rem; → Aumenta título para 2.5rem (40px) */
         font-size: 2.5rem;
+        
+        /* margin-bottom: 40px; → Espaço abaixo em 40px */
         margin-bottom: 40px;
     }
 
     .profiles-list {
+        /* gap: 40px; → Espaço entre itens em 40px */
         gap: 40px;
+        
+        /* padding: 0 15px; → Padding lateral em 15px */
         padding: 0 15px;
     }
 
     .profile {
+        /* max-width: 180px; → Largura máxima em 180px */
         max-width: 180px;
     }
 
     .profile img {
+        /* width: 150px; → Imagem em 150px */
         width: 150px;
+        
+        /* height: 150px; → Altura em 150px */
         height: 150px;
+        
+        /* border-radius: 10px; → Volta ao arredondamento de 10px */
         border-radius: 10px;
     }
 
     .profile:hover img {
+        /* transform: scale(1.09); → Aumenta 9% ao passar mouse */
         transform: scale(1.09);
     }
 
     figcaption {
+        /* font-size: 1.2rem; → Nome em 1.2rem (19.2px) */
         font-size: 1.2rem;
+        
+        /* margin-top: 18px; → Espaço acima em 18px */
         margin-top: 18px;
     }
 }
@@ -248,27 +426,39 @@ figcaption {
 /* ============================================
    TABLET PAISAGEM - Orientação landscape (601px a 768px)
    ============================================ */
+
 @media (min-width: 601px) and (max-width: 768px) and (orientation: landscape) {
     body {
+        /* padding: 16px; → Reduz padding em orientação paisagem para melhor uso do espaço */
         padding: 16px;
     }
 
     h1 {
+        /* font-size: 2rem; → Reduz título para 2rem em landscape */
         font-size: 2rem;
+        
+        /* margin-bottom: 25px; → Espaço reduzido em 25px */
         margin-bottom: 25px;
     }
 
     .profiles-list {
+        /* gap: 30px; → Gap reduzido para 30px */
         gap: 30px;
     }
 
     .profile img {
+        /* width: 130px; → Reduz imagem para 130px em landscape */
         width: 130px;
+        
+        /* height: 130px; → Altura em 130px */
         height: 130px;
     }
 
     figcaption {
+        /* font-size: 1rem; → Reduz nome para 1rem */
         font-size: 1rem;
+        
+        /* margin-top: 12px; → Espaço reduzido em 12px */
         margin-top: 12px;
     }
 }
@@ -276,28 +466,42 @@ figcaption {
 /* ============================================
    TABLETS GRANDES (769px a 1024px)
    ============================================ */
+
 @media (min-width: 769px) and (max-width: 1024px) {
     h1 {
+        /* font-size: 3rem; → Título em 3rem (48px) */
         font-size: 3rem;
+        
+        /* margin-bottom: 50px; → Espaço em 50px */
         margin-bottom: 50px;
     }
 
     .profiles-list {
+        /* gap: 50px; → Gap em 50px */
         gap: 50px;
     }
 
     .profile {
+        /* max-width: 220px; → Largura máxima em 220px */
         max-width: 220px;
     }
 
     .profile img {
+        /* width: 180px; → Imagem em 180px */
         width: 180px;
+        
+        /* height: 180px; → Altura em 180px */
         height: 180px;
+        
+        /* border-radius: 10px; → Arredondamento de 10px */
         border-radius: 10px;
     }
 
     figcaption {
+        /* font-size: 1.3rem; → Nome em 1.3rem (20.8px) */
         font-size: 1.3rem;
+        
+        /* margin-top: 20px; → Espaço em 20px */
         margin-top: 20px;
     }
 }
@@ -305,26 +509,36 @@ figcaption {
 /* ============================================
    DESKTOP PEQUENO (1025px a 1366px)
    ============================================ */
+
 @media (min-width: 1025px) and (max-width: 1366px) {
     h1 {
+        /* font-size: 3.2rem; → Título em 3.2rem (51.2px) */
         font-size: 3.2rem;
+        
+        /* margin-bottom: 55px; → Espaço em 55px */
         margin-bottom: 55px;
     }
 
     .profiles-list {
+        /* gap: 55px; → Gap em 55px */
         gap: 55px;
     }
 
     .profile {
+        /* max-width: 230px; → Largura máxima em 230px */
         max-width: 230px;
     }
 
     .profile img {
+        /* width: 190px; → Imagem em 190px */
         width: 190px;
+        
+        /* height: 190px; → Altura em 190px */
         height: 190px;
     }
 
     figcaption {
+        /* font-size: 1.4rem; → Nome em 1.4rem (22.4px) */
         font-size: 1.4rem;
     }
 }
@@ -332,26 +546,36 @@ figcaption {
 /* ============================================
    DESKTOP PADRÃO (1367px e acima)
    ============================================ */
+
 @media (min-width: 1367px) {
     h1 {
+        /* font-size: 3.5rem; → Título em 3.5rem (56px) */
         font-size: 3.5rem;
+        
+        /* margin-bottom: 60px; → Espaço em 60px */
         margin-bottom: 60px;
     }
 
     .profiles-list {
+        /* gap: 60px; → Gap em 60px */
         gap: 60px;
     }
 
     .profile {
+        /* max-width: 250px; → Largura máxima em 250px */
         max-width: 250px;
     }
 
     .profile img {
+        /* width: 200px; → Imagem em 200px */
         width: 200px;
+        
+        /* height: 200px; → Altura em 200px */
         height: 200px;
     }
 
     figcaption {
+        /* font-size: 1.5rem; → Nome em 1.5rem (24px) */
         font-size: 1.5rem;
     }
 }
@@ -359,30 +583,41 @@ figcaption {
 /* ============================================
    ULTRA WIDE - Monitores muito grandes (1921px+)
    ============================================ */
+
 @media (min-width: 1921px) {
     main {
+        /* max-width: 1400px; → Aumenta largura máxima para 1400px em telas ultra-wide */
         max-width: 1400px;
     }
 
     h1 {
+        /* font-size: 4rem; → Título em 4rem (64px) */
         font-size: 4rem;
+        
+        /* margin-bottom: 80px; → Espaço em 80px */
         margin-bottom: 80px;
     }
 
     .profiles-list {
+        /* gap: 80px; → Gap em 80px para mais espaçamento */
         gap: 80px;
     }
 
     .profile {
+        /* max-width: 280px; → Largura máxima em 280px */
         max-width: 280px;
     }
 
     .profile img {
+        /* width: 220px; → Imagem em 220px */
         width: 220px;
+        
+        /* height: 220px; → Altura em 220px */
         height: 220px;
     }
 
     figcaption {
+        /* font-size: 1.7rem; → Nome em 1.7rem (27.2px) */
         font-size: 1.7rem;
     }
 }
@@ -390,13 +625,21 @@ figcaption {
 /* ============================================
    SUPORTE A PREFERED REDUCED MOTION (Acessibilidade)
    ============================================ */
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
+        /* animation-duration: 0.01ms !important; → Reduz duração de animações para praticamente 0ms para usuários sensíveis */
         animation-duration: 0.01ms !important;
+        
+        /* animation-iteration-count: 1 !important; → Executa animação apenas 1 vez */
         animation-iteration-count: 1 !important;
+        
+        /* transition-duration: 0.01ms !important; → Reduz transições para praticamente 0ms */
         transition-duration: 0.01ms !important;
+        
+        /* scroll-behavior: auto !important; → Remove rolagem suave (volta ao padrão instantâneo) */
         scroll-behavior: auto !important;
     }
 }
@@ -404,8 +647,10 @@ figcaption {
 /* ============================================
    MODO ESCURO (Dark Mode)
    ============================================ */
+
 @media (prefers-color-scheme: dark) {
     body {
+        /* background-color: #0f0f0f; → Ajusta para cor ainda mais escura em modo escuro */
         background-color: #0f0f0f;
     }
 }
@@ -413,17 +658,23 @@ figcaption {
 /* ============================================
    MODO CLARO (Light Mode)
    ============================================ */
+
 @media (prefers-color-scheme: light) {
     body {
+        /* background-color: #f5f5f5; → Define fundo claro cinzento */
         background-color: #f5f5f5;
+        
+        /* color: #141414; → Muda cor do texto para escuro em modo claro */
         color: #141414;
     }
 
     .profile img {
+        /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); → Sombra mais suave em modo claro (opacidade reduzida) */
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
 
     .profile:hover img {
+        /* box-shadow: ... → Sombra glow e sombra normal ajustadas para modo claro */
         box-shadow: 0 0 20px rgba(229, 9, 20, 0.6), 0 8px 24px rgba(0, 0, 0, 0.15);
     }
 }
@@ -431,25 +682,38 @@ figcaption {
 /* ============================================
    IMPRESSÃO (Print)
    ============================================ */
+
 @media print {
     body {
+        /* background-color: white; → Muda para branco para economizar tinta */
         background-color: white;
+        
+        /* color: black; → Muda texto para preto */
         color: black;
+        
+        /* padding: 0; → Remove padding para aproveitar papel */
         padding: 0;
     }
 
     h1 {
+        /* animation: none; → Remove animações em impressão (não fazem sentido em papel) */
         animation: none;
+        
+        /* margin-bottom: 30px; → Espaço ajustado para impressão */
         margin-bottom: 30px;
     }
 
     .profile:hover img,
     .profile:hover figcaption {
+        /* transform: none; → Remove transformações (não aparecem em papel) */
         transform: none;
+        
+        /* color: inherit; → Volta cor padrão */
         color: inherit;
     }
 
     .profiles-list {
+        /* gap: 40px; → Gap adequado para impressão */
         gap: 40px;
     }
 }
@@ -457,16 +721,20 @@ figcaption {
 /* ============================================
    ALTO CONTRASTE (High Contrast Mode)
    ============================================ */
+
 @media (prefers-contrast: more) {
     .profile img {
+        /* border: 2px solid #ffffff; → Adiciona borda branca visível em modo alto contraste */
         border: 2px solid #ffffff;
     }
 
     .profile:hover img {
+        /* border: 3px solid #e50914; → Aumenta borda no hover para maior visibilidade */
         border: 3px solid #e50914;
     }
 
     figcaption {
+        /* font-weight: 700; → Aumenta peso do texto para maior contraste */
         font-weight: 700;
     }
 }

@@ -1,131 +1,131 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Remove as margens padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui borda e padding no cálculo total da largura/altura */
 }
 
 body {
-    background-color: #141414;
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    background-color: #141414; /* Define a cor de fundo escura (tema Netflix) */
+    color: #ffffff; /* Define a cor do texto em branco */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte padrão */
+    min-height: 100vh; /* Define altura mínima como 100% da viewport */
+    display: flex; /* Ativa o Flexbox para centralizar conteúdo */
+    justify-content: center; /* Centraliza itens horizontalmente */
+    align-items: center; /* Centraliza itens verticalmente */
+    padding: 20px; /* Adiciona espaçamento interno de 20px */
 }
 
 main {
-    width: 100%;
-    max-width: 1200px;
-    text-align: center;
+    width: 100%; /* Define largura como 100% do container pai */
+    max-width: 1200px; /* Limita a largura máxima a 1200px */
+    text-align: center; /* Alinha o texto ao centro */
 }
 
 h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 60px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    animation: fadeInDown 0.8s ease-out;
+    font-size: 3.5rem; /* Define tamanho da fonte em 3.5 vezes a do navegador */
+    font-weight: 700; /* Define peso da fonte (negrito) */
+    margin-bottom: 60px; /* Adiciona espaço abaixo do título */
+    letter-spacing: 2px; /* Aumenta o espaço entre letras */
+    text-transform: uppercase; /* Transforma texto em maiúsculas */
+    animation: fadeInDown 0.8s ease-out; /* Aplica animação de entrada suave */
 }
 
 .profiles {
-    width: 100%;
+    width: 100%; /* Define largura como 100% do container pai */
 }
 
 .profiles-list {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
+    list-style: none; /* Remove os pontos da lista */
+    display: flex; /* Ativa o Flexbox para distribuição dos itens */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 60px; /* Define espaço entre os itens em 60px */
+    flex-wrap: wrap; /* Permite que itens quebrem para a próxima linha */
 }
 
 .profile {
-    cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    max-width: 250px;
+    cursor: pointer; /* Muda o cursor para indicar clicabilidade */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Suaviza transições de 0.3s */
+    max-width: 250px; /* Limita a largura máxima do perfil */
 }
 
 .profile img {
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
+    width: 200px; /* Define largura da imagem em 200px */
+    height: 200px; /* Define altura da imagem em 200px */
+    border-radius: 10px; /* Arredonda os cantos em 10px */
+    object-fit: cover; /* Faz a imagem cobrir todo o espaço, cortando se necessário */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); /* Adiciona sombra ao redor da imagem */
+    transition: all 0.3s ease; /* Suaviza todas as transições em 0.3s */
 }
 
 .profile:hover img {
-    transform: scale(1.1);
-    border: 3px solid #e50914;
-    box-shadow: 0 0 20px rgba(229, 9, 20, 0.8), 0 8px 24px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1); /* Aumenta a imagem em 10% ao passar o mouse */
+    border: 3px solid #e50914; /* Adiciona borda vermelha Netflix com 3px */
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.8), 0 8px 24px rgba(0, 0, 0, 0.5); /* Adiciona glow vermelho e sombra */
 }
 
 figcaption {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
+    margin-top: 20px; /* Adiciona espaço acima do nome */
+    font-size: 1.5rem; /* Define tamanho da fonte do nome */
+    font-weight: 500; /* Define peso da fonte (semi-negrito) */
+    letter-spacing: 1px; /* Aumenta o espaço entre letras */
+    transition: color 0.3s ease; /* Suaviza mudança de cor em 0.3s */
 }
 
 .profile:hover figcaption {
-    color: #e50914;
+    color: #e50914; /* Muda a cor do nome para vermelho ao passar o mouse */
 }
 
 @keyframes fadeInDown {
     from {
-        opacity: 0;
-        transform: translateY(-30px);
+        opacity: 0; /* Inicia com transparência total */
+        transform: translateY(-30px); /* Começa 30px acima */
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* Termina totalmente visível */
+        transform: translateY(0); /* Retorna à posição original */
     }
 }
 
 /* Responsivo para tablets */
 @media (max-width: 768px) {
     h1 {
-        font-size: 2.5rem;
-        margin-bottom: 40px;
+        font-size: 2.5rem; /* Reduz o tamanho do título para tablets */
+        margin-bottom: 40px; /* Reduz o espaço abaixo do título */
     }
 
     .profiles-list {
-        gap: 40px;
+        gap: 40px; /* Reduz o espaço entre itens */
     }
 
     .profile img {
-        width: 150px;
-        height: 150px;
+        width: 150px; /* Reduz largura da imagem */
+        height: 150px; /* Reduz altura da imagem */
     }
 
     figcaption {
-        font-size: 1.2rem;
+        font-size: 1.2rem; /* Reduz tamanho do texto */
     }
 }
 
 /* Responsivo para celulares */
 @media (max-width: 480px) {
     h1 {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
+        font-size: 1.8rem; /* Reduz significativamente o tamanho do título */
+        margin-bottom: 30px; /* Reduz o espaço abaixo do título */
     }
 
     .profiles-list {
-        gap: 30px;
+        gap: 30px; /* Reduz o espaço entre itens */
     }
 
     .profile img {
-        width: 120px;
-        height: 120px;
-        border-radius: 8px;
+        width: 120px; /* Reduz largura da imagem para celular */
+        height: 120px; /* Reduz altura da imagem para celular */
+        border-radius: 8px; /* Reduz o arredondamento dos cantos */
     }
 
     figcaption {
-        font-size: 1rem;
-        margin-top: 15px;
+        font-size: 1rem; /* Reduz tamanho do texto para celular */
+        margin-top: 15px; /* Reduz o espaço acima do nome */
     }
 }

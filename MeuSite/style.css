@@ -1,0 +1,171 @@
+/* Reset simples */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tipografia e fundo */
+body {
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    line-height: 1.5;
+    background-color: #fafafa;
+    color: #222;
+    padding: 0 1rem;
+}
+
+/* Cabeçalho */
+header {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+}
+
+header p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Navegação */
+nav {
+    margin: 1rem 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #1a73e8;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+}
+
+/* Hover acessível */
+nav a:hover,
+nav a:focus {
+    text-decoration: underline;
+}
+
+/* Conteúdo principal */
+main {
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    padding: 0 0.5rem;
+}
+
+section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+section h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: #111;
+}
+
+/* Programação */
+#programacao ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#programacao li {
+    padding: 0.35rem 0;
+    border-left: 3px solid transparent;
+}
+
+#programacao li:nth-child(odd) {
+    background: rgba(0,0,0,0.02);
+}
+
+/* Player (se adicionar elemento audio) */
+.player {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+}
+
+.player audio {
+    width: 100%;
+    max-width: 480px;
+}
+
+/* Estilos para o player Ao Vivo (RDS + capa) */
+.live-player {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+}
+
+.live-player audio {
+    flex: 1 1 320px;
+    max-width: 480px;
+    width: 100%;
+}
+
+.cover img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #f0f0f0;
+}
+
+#rds-info {
+    min-width: 180px;
+    max-width: 320px;
+}
+
+#now-playing {
+    font-weight: 600;
+}
+
+.live-note {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+/* Contato */
+#contato ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#contato li {
+    margin: 0.35rem 0;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    color: #666;
+    font-size: 0.95rem;
+    border-top: 1px solid #eee;
+}
+
+/* Responsividade simples */
+@media (min-width: 720px) {
+    header h1 { font-size: 2.4rem; }
+    nav ul { gap: 2rem; }
+    main { padding: 0; }
+    .live-player { align-items: flex-start; }
+}

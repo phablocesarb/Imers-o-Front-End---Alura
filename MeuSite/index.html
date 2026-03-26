@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mova FM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Mova FM</h1>
+        <p>Ouça, Movimente-se!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#programacao">Programação</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#live">Ao Vivo</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Bem-vindo à Mova FM</h2>
+            <p>Ouça as melhores músicas e fique por dentro das novidades.</p>
+        </section>
+
+        <section id="programacao">
+            <h2>Programação</h2>
+            <ul>
+                <li>06:00 - Bom Dia com Música</li>
+                <li>12:00 - Hits do Momento</li>
+                <li>18:00 - Rock Clássico</li>
+                <li>22:00 - Noite Relaxante</li>
+            </ul>
+        </section>
+
+        <!-- Nova seção: Streaming Ao Vivo com RDS e capa -->
+        <section id="live">
+            <h2>Ao Vivo</h2>
+
+            <!-- Player de streaming -->
+            <div class="live-player">
+                <!-- Substitua streamUrl pelo URL do seu stream (ex.: https://meuservidor/stream) -->
+                <audio id="stream" controls preload="none">
+                    <source id="stream-source" src="https://stream.suneaterdark.com.br/listen/movafm/stream" type="audio/mpeg">
+                    Seu navegador não suporta o elemento de áudio.
+                </audio>
+
+                <!-- Informação RDS (música atual) -->
+                <div id="rds-info" aria-live="polite">
+                    <p id="now-playing"><strong>Agora tocando:</strong> —</p>
+                    <p id="now-artist"></p>
+                </div>
+
+                <!-- Capa do álbum/track -->
+                <div class="cover">
+                    <!-- imagem placeholder; será atualizada via JS -->
+                    <img id="cover-img" src="cover-placeholder.png" alt="Capa da música" width="200" height="200">
+                </div>
+            </div>
+
+            <p class="live-note">Dica: se o stream não iniciar, verifique o URL e se o servidor permite CORS.</p>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre Nós</h2>
+            <p>Somos uma rádio dedicada a trazer música de qualidade para nossos ouvintes. Nossa missão é conectar pessoas através da música.</p>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Entre em contato conosco:</p>
+            <ul>
+                <li>Email: contato@radioonline.com</li>
+                <li>Telefone: (11) 9876-5432</li>
+                <li>Redes Sociais: <a href="#">Facebook</a>, <a href="#">Instagram</a>, <a href="#">Twitter</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mova FM. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+    // Exemplo simples de atualização de RDS/cover.
+    // Substitua metadataUrl pelo endpoint que fornece JSON com { title, artist, cover }.
+    (function() {
+        const metadataUrl = 'https://stream.suneaterdark.com.br/api/nowplaying_static/movafm.json';
+        const pollInterval = 10000; // 10s
+
+        const nowPlayingEl = document.getElementById('now-playing');
+        const nowArtistEl = document.getElementById('now-artist');
+        const coverImg = document.getElementById('cover-img');
+
+        async function fetchMetadata() {
+            try {
+                const res = await fetch(metadataUrl, { cache: 'no-store' });
+                if (!res.ok) throw new Error('metadata fetch failed');
+                const data = await res.json();
+                // Espera-se { title, artist, cover } — ajuste conforme seu endpoint
+                const title = data.title || '—';
+                const artist = data.artist || '';
+                const cover = data.cover || 'cover-placeholder.png';
+
+                nowPlayingEl.innerHTML = '<strong>Agora tocando:</strong> ' + title;
+                nowArtistEl.textContent = artist;
+                if (cover) coverImg.src = cover;
+            } catch (err) {
+                // silenciar erros para não poluir a UI
+                console.warn('Falha ao obter metadata:', err);
+            }
+        }
+
+        // executar ao carregar e em intervalos
+        fetchMetadata();
+        setInterval(fetchMetadata, pollInterval);
+    })();
+    </script>
+</body>
+</html>

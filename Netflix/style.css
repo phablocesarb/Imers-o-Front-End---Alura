@@ -92,12 +92,12 @@ h1 {
    SEÇÃO DE PERFIS
    ============================================ */
 
-.profiles {
+nav.profiles {
     /* width: 100%; → Define largura como 100% do container pai */
     width: 100%;
 }
 
-.profiles-list {
+ul.profiles-list {
     /* list-style: none; → Remove os pontos/bullets padrão da lista (ul/ol) */
     list-style: none;
     
@@ -289,7 +289,7 @@ figcaption {
         letter-spacing: 1px;
     }
 
-    .profiles-list {
+    ul.profiles-list {
         /* grid-template-columns: 1fr; → Define uma única coluna em mobile */
         grid-template-columns: 1fr;
         
@@ -354,7 +354,7 @@ figcaption {
         margin-bottom: 35px;
     }
 
-    .profiles-list {
+    ul.profiles-list {
         /* grid-template-columns: repeat(2, 1fr); → Define exatamente 2 colunas iguais */
         grid-template-columns: repeat(2, 1fr);
         
@@ -403,7 +403,7 @@ figcaption {
         margin-bottom: 40px;
     }
 
-    .profiles-list {
+    ul.profiles-list {
         /* grid-template-columns: repeat(2, 1fr); → Define 2 colunas iguais em tablets */
         grid-template-columns: repeat(2, 1fr);
         
@@ -462,7 +462,7 @@ figcaption {
         margin-bottom: 25px;
     }
 
-    .profiles-list {
+    ul.profiles-list {
         /* grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); → 2-3 colunas automáticas em landscape */
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         
@@ -500,7 +500,7 @@ figcaption {
         margin-bottom: 50px;
     }
 
-    .profiles-list {
+    ul.profiles-list {
         /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); → 2-3 colunas conforme espaço disponível */
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         
@@ -546,7 +546,7 @@ figcaption {
         margin-bottom: 55px;
     }
 
-    .profiles-list {
+    ul.profiles-list {
         /* grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); → 2-3 colunas em desktop pequeno */
         grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
         
@@ -586,7 +586,7 @@ figcaption {
         margin-bottom: 60px;
     }
 
-    .profiles-list {
+    ul.profiles-list {
         /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); → 3 colunas em desktop padrão */
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         
@@ -631,7 +631,7 @@ figcaption {
         margin-bottom: 80px;
     }
 
-    .profiles-list {
+    ul.profiles-list {
         /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); → 3-4 colunas em ultra-wide */
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         
@@ -748,7 +748,7 @@ figcaption {
         color: inherit;
     }
 
-    .profiles-list {
+    ul.profiles-list {
         /* gap: 40px; → Gap adequado para impressão */
         gap: 40px;
     }

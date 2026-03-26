@@ -1,131 +1,472 @@
-* {
-    margin: 0; /* Remove as margens padrão de todos os elementos */
-    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
-    box-sizing: border-box; /* Inclui borda e padding no cálculo total da largura/altura */
+/* ============================================
+   RESET E ESTILOS BASE
+   ============================================ */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px; /* Define tamanho base para rem calculations */
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #141414; /* Define a cor de fundo escura (tema Netflix) */
-    color: #ffffff; /* Define a cor do texto em branco */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte padrão */
-    min-height: 100vh; /* Define altura mínima como 100% da viewport */
-    display: flex; /* Ativa o Flexbox para centralizar conteúdo */
-    justify-content: center; /* Centraliza itens horizontalmente */
-    align-items: center; /* Centraliza itens verticalmente */
-    padding: 20px; /* Adiciona espaçamento interno de 20px */
+    background-color: #141414;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    line-height: 1.6;
 }
 
 main {
-    width: 100%; /* Define largura como 100% do container pai */
-    max-width: 1200px; /* Limita a largura máxima a 1200px */
-    text-align: center; /* Alinha o texto ao centro */
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
 }
 
+/* ============================================
+   TÍTULOS E CABEÇALHOS
+   ============================================ */
 h1 {
-    font-size: 3.5rem; /* Define tamanho da fonte em 3.5 vezes a do navegador */
-    font-weight: 700; /* Define peso da fonte (negrito) */
-    margin-bottom: 60px; /* Adiciona espaço abaixo do título */
-    letter-spacing: 2px; /* Aumenta o espaço entre letras */
-    text-transform: uppercase; /* Transforma texto em maiúsculas */
-    animation: fadeInDown 0.8s ease-out; /* Aplica animação de entrada suave */
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: fadeInDown 0.8s ease-out;
+    word-wrap: break-word;
 }
 
+/* ============================================
+   SEÇÃO DE PERFIS
+   ============================================ */
 .profiles {
-    width: 100%; /* Define largura como 100% do container pai */
+    width: 100%;
 }
 
 .profiles-list {
-    list-style: none; /* Remove os pontos da lista */
-    display: flex; /* Ativa o Flexbox para distribuição dos itens */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    gap: 60px; /* Define espaço entre os itens em 60px */
-    flex-wrap: wrap; /* Permite que itens quebrem para a próxima linha */
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
 }
 
 .profile {
-    cursor: pointer; /* Muda o cursor para indicar clicabilidade */
-    transition: transform 0.3s ease, filter 0.3s ease; /* Suaviza transições de 0.3s */
-    max-width: 250px; /* Limita a largura máxima do perfil */
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    max-width: 250px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Para dispositivos touch, remover hover effects complexos */
+@media (hover: none) and (pointer: coarse) {
+    .profile {
+        transition: all 0.2s ease;
+    }
 }
 
 .profile img {
-    width: 200px; /* Define largura da imagem em 200px */
-    height: 200px; /* Define altura da imagem em 200px */
-    border-radius: 10px; /* Arredonda os cantos em 10px */
-    object-fit: cover; /* Faz a imagem cobrir todo o espaço, cortando se necessário */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); /* Adiciona sombra ao redor da imagem */
-    transition: all 0.3s ease; /* Suaviza todas as transições em 0.3s */
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    display: block;
 }
 
-.profile:hover img {
-    transform: scale(1.1); /* Aumenta a imagem em 10% ao passar o mouse */
-    border: 3px solid #e50914; /* Adiciona borda vermelha Netflix com 3px */
-    box-shadow: 0 0 20px rgba(229, 9, 20, 0.8), 0 8px 24px rgba(0, 0, 0, 0.5); /* Adiciona glow vermelho e sombra */
+.profile:hover img,
+.profile:focus-within img {
+    transform: scale(1.1);
+    border: 3px solid #e50914;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.8), 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 figcaption {
-    margin-top: 20px; /* Adiciona espaço acima do nome */
-    font-size: 1.5rem; /* Define tamanho da fonte do nome */
-    font-weight: 500; /* Define peso da fonte (semi-negrito) */
-    letter-spacing: 1px; /* Aumenta o espaço entre letras */
-    transition: color 0.3s ease; /* Suaviza mudança de cor em 0.3s */
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.profile:hover figcaption {
-    color: #e50914; /* Muda a cor do nome para vermelho ao passar o mouse */
+.profile:hover figcaption,
+.profile:focus-within figcaption {
+    color: #e50914;
 }
 
+/* ============================================
+   ANIMAÇÕES
+   ============================================ */
 @keyframes fadeInDown {
     from {
-        opacity: 0; /* Inicia com transparência total */
-        transform: translateY(-30px); /* Começa 30px acima */
+        opacity: 0;
+        transform: translateY(-30px);
     }
     to {
-        opacity: 1; /* Termina totalmente visível */
-        transform: translateY(0); /* Retorna à posição original */
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Responsivo para tablets */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem; /* Reduz o tamanho do título para tablets */
-        margin-bottom: 40px; /* Reduz o espaço abaixo do título */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
-
-    .profiles-list {
-        gap: 40px; /* Reduz o espaço entre itens */
-    }
-
-    .profile img {
-        width: 150px; /* Reduz largura da imagem */
-        height: 150px; /* Reduz altura da imagem */
-    }
-
-    figcaption {
-        font-size: 1.2rem; /* Reduz tamanho do texto */
+    to {
+        opacity: 1;
     }
 }
 
-/* Responsivo para celulares */
+/* ============================================
+   MOBILE FIRST - DISPOSITIVOS PEQUENOS (0px a 480px)
+   ============================================ */
 @media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        padding: 16px;
+        min-height: 100vh;
+    }
+
     h1 {
-        font-size: 1.8rem; /* Reduz significativamente o tamanho do título */
-        margin-bottom: 30px; /* Reduz o espaço abaixo do título */
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
     }
 
     .profiles-list {
-        gap: 30px; /* Reduz o espaço entre itens */
+        gap: 20px;
+        padding: 0 8px;
+    }
+
+    .profile {
+        max-width: 120px;
     }
 
     .profile img {
-        width: 120px; /* Reduz largura da imagem para celular */
-        height: 120px; /* Reduz altura da imagem para celular */
-        border-radius: 8px; /* Reduz o arredondamento dos cantos */
+        width: 120px;
+        height: 120px;
+        border-radius: 8px;
+    }
+
+    .profile:hover img {
+        transform: scale(1.08);
+        border: 2px solid #e50914;
     }
 
     figcaption {
-        font-size: 1rem; /* Reduz tamanho do texto para celular */
-        margin-top: 15px; /* Reduz o espaço acima do nome */
+        font-size: 0.9rem;
+        margin-top: 12px;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* ============================================
+   SMALL PHONES - Dispositivos pequenos (481px a 600px)
+   ============================================ */
+@media (min-width: 481px) and (max-width: 600px) {
+    html {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 35px;
+    }
+
+    .profiles-list {
+        gap: 25px;
+        padding: 0 10px;
+    }
+
+    .profile {
+        max-width: 140px;
+    }
+
+    .profile img {
+        width: 140px;
+        height: 140px;
+        border-radius: 9px;
+    }
+
+    figcaption {
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+}
+
+/* ============================================
+   TABLETS - Dispositivos médios (601px a 768px)
+   ============================================ */
+@media (min-width: 601px) and (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+
+    .profiles-list {
+        gap: 40px;
+        padding: 0 15px;
+    }
+
+    .profile {
+        max-width: 180px;
+    }
+
+    .profile img {
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
+    }
+
+    .profile:hover img {
+        transform: scale(1.09);
+    }
+
+    figcaption {
+        font-size: 1.2rem;
+        margin-top: 18px;
+    }
+}
+
+/* ============================================
+   TABLET PAISAGEM - Orientação landscape (601px a 768px)
+   ============================================ */
+@media (min-width: 601px) and (max-width: 768px) and (orientation: landscape) {
+    body {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+
+    .profiles-list {
+        gap: 30px;
+    }
+
+    .profile img {
+        width: 130px;
+        height: 130px;
+    }
+
+    figcaption {
+        font-size: 1rem;
+        margin-top: 12px;
+    }
+}
+
+/* ============================================
+   TABLETS GRANDES (769px a 1024px)
+   ============================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 50px;
+    }
+
+    .profiles-list {
+        gap: 50px;
+    }
+
+    .profile {
+        max-width: 220px;
+    }
+
+    .profile img {
+        width: 180px;
+        height: 180px;
+        border-radius: 10px;
+    }
+
+    figcaption {
+        font-size: 1.3rem;
+        margin-top: 20px;
+    }
+}
+
+/* ============================================
+   DESKTOP PEQUENO (1025px a 1366px)
+   ============================================ */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    h1 {
+        font-size: 3.2rem;
+        margin-bottom: 55px;
+    }
+
+    .profiles-list {
+        gap: 55px;
+    }
+
+    .profile {
+        max-width: 230px;
+    }
+
+    .profile img {
+        width: 190px;
+        height: 190px;
+    }
+
+    figcaption {
+        font-size: 1.4rem;
+    }
+}
+
+/* ============================================
+   DESKTOP PADRÃO (1367px e acima)
+   ============================================ */
+@media (min-width: 1367px) {
+    h1 {
+        font-size: 3.5rem;
+        margin-bottom: 60px;
+    }
+
+    .profiles-list {
+        gap: 60px;
+    }
+
+    .profile {
+        max-width: 250px;
+    }
+
+    .profile img {
+        width: 200px;
+        height: 200px;
+    }
+
+    figcaption {
+        font-size: 1.5rem;
+    }
+}
+
+/* ============================================
+   ULTRA WIDE - Monitores muito grandes (1921px+)
+   ============================================ */
+@media (min-width: 1921px) {
+    main {
+        max-width: 1400px;
+    }
+
+    h1 {
+        font-size: 4rem;
+        margin-bottom: 80px;
+    }
+
+    .profiles-list {
+        gap: 80px;
+    }
+
+    .profile {
+        max-width: 280px;
+    }
+
+    .profile img {
+        width: 220px;
+        height: 220px;
+    }
+
+    figcaption {
+        font-size: 1.7rem;
+    }
+}
+
+/* ============================================
+   SUPORTE A PREFERED REDUCED MOTION (Acessibilidade)
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================
+   MODO ESCURO (Dark Mode)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #0f0f0f;
+    }
+}
+
+/* ============================================
+   MODO CLARO (Light Mode)
+   ============================================ */
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #f5f5f5;
+        color: #141414;
+    }
+
+    .profile img {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .profile:hover img {
+        box-shadow: 0 0 20px rgba(229, 9, 20, 0.6), 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+}
+
+/* ============================================
+   IMPRESSÃO (Print)
+   ============================================ */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+        padding: 0;
+    }
+
+    h1 {
+        animation: none;
+        margin-bottom: 30px;
+    }
+
+    .profile:hover img,
+    .profile:hover figcaption {
+        transform: none;
+        color: inherit;
+    }
+
+    .profiles-list {
+        gap: 40px;
+    }
+}
+
+/* ============================================
+   ALTO CONTRASTE (High Contrast Mode)
+   ============================================ */
+@media (prefers-contrast: more) {
+    .profile img {
+        border: 2px solid #ffffff;
+    }
+
+    .profile:hover img {
+        border: 3px solid #e50914;
+    }
+
+    figcaption {
+        font-weight: 700;
     }
 }

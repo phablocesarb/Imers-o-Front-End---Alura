@@ -3,7 +3,7 @@ export const categories = [
         title: "Épicos",
         items: [
             {
-                img: "https://upload.wikimedia.org/wikipedia/en/6/67/Forrest_Gump_poster.jpg", top10: true, badge: "Clássico", badgeColor: "red", progress: 0,
+                img: "https://upload.wikimedia.org/wikipedia/en/6/67/Forrest_Gump_poster.jpg", top10: true, badge: "Clássico", badgeColor: "red", progress: 25,
                 youtube: "https://www.youtube.com/watch?v=bLvqoHBptjg"
             },
             {

@@ -1,8 +1,46 @@
 /* ============================================
+   TEMA - VARIÁVEIS DE COR
+   ============================================ */
+
+/* Tema escuro (padrão) */
+html[data-theme="dark"] {
+    /* Define cores para o modo escuro */
+    --bg-primary: #141414;
+    /* Fundo primário escuro */
+    --bg-secondary: #1e1e1e;
+    /* Fundo secundário ligeiramente mais claro */
+    --text-primary: #ffffff;
+    /* Texto primário branco */
+    --text-secondary: #b3b3b3;
+    /* Texto secundário cinza claro */
+    --border-color: #333333;
+    /* Cor de borda para modo escuro */
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    /* Cor de sombra para modo escuro */
+}
+
+/* Tema claro */
+html[data-theme="light"] {
+    /* Define cores para o modo claro */
+    --bg-primary: #f5f5f5;
+    /* Fundo primário cinza muito claro */
+    --bg-secondary: #ffffff;
+    /* Fundo secundário branco puro */
+    --text-primary: #1a1a1a;
+    /* Texto primário preto */
+    --text-secondary: #666666;
+    /* Texto secundário cinza escuro */
+    --border-color: #e0e0e0;
+    /* Cor de borda para modo claro */
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    /* Cor de sombra para modo claro (mais suave) */
+}
+
+/* ============================================
    RESET E ESTILOS BASE
    ============================================ */
 
-   * {
+* {
     /* margin: 0; → Remove as margens padrão que browsers aplicam a todos elementos */
     margin: 0;
     
@@ -22,11 +60,11 @@ html {
 }
 
 body {
-    /* background-color: #141414; → Define cor de fundo escura (tema Netflix-like) */
-    background-color: #141414;
+    /* background-color: var(--bg-primary); → Usa cor de fundo variável conforme tema */
+    background-color: var(--bg-primary);
     
-    /* color: #ffffff; → Define cor padrão do texto em branco */
-    color: #ffffff;
+    /* color: var(--text-primary); → Usa cor de texto variável conforme tema */
+    color: var(--text-primary);
     
     /* font-family: ... → Define a fonte padrão: Segoe UI (Windows), Tahoma, Geneva, Verdana e sans-serif genérica */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -48,6 +86,9 @@ body {
     
     /* line-height: 1.6; → Define altura de linha como 1.6 vezes o tamanho da fonte (melhora legibilidade) */
     line-height: 1.6;
+    
+    /* transition: background-color 0.3s ease, color 0.3s ease; → Suaviza transição de cores ao mudar tema */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 main {
@@ -59,6 +100,74 @@ main {
     
     /* text-align: center; → Alinha todo o conteúdo de texto ao centro horizontalmente */
     text-align: center;
+}
+
+/* ============================================
+   HEADER COM BOTÃO DE TEMA
+   ============================================ */
+
+.header {
+    /* position: absolute; → Posiciona o header de forma absoluta */
+    position: absolute;
+    
+    /* top: 20px; → Define distância de 20px do topo */
+    top: 20px;
+    
+    /* right: 20px; → Define distância de 20px da direita */
+    right: 20px;
+    
+    /* z-index: 1000; → Coloca o header acima de outros elementos */
+    z-index: 1000;
+}
+
+.theme-toggle {
+    /* background-color: var(--bg-secondary); → Usa cor secundária de fundo */
+    background-color: var(--bg-secondary);
+    
+    /* color: var(--text-primary); → Usa cor primária de texto */
+    color: var(--text-primary);
+    
+    /* border: 2px solid var(--border-color); → Borda com cor variável conforme tema */
+    border: 2px solid var(--border-color);
+    
+    /* padding: 10px 15px; → Espaço interno do botão */
+    padding: 10px 15px;
+    
+    /* font-size: 1.5rem; → Tamanho grande da fonte */
+    font-size: 1.5rem;
+    
+    /* border-radius: 50%; → Torna o botão circular */
+    border-radius: 50%;
+    
+    /* cursor: pointer; → Muda o cursor para mão */
+    cursor: pointer;
+    
+    /* transition: all 0.3s ease; → Suaviza todas as transições */
+    transition: all 0.3s ease;
+    
+    /* box-shadow: 0 4px 12px var(--shadow-color); → Adiciona sombra com cor variável */
+    box-shadow: 0 4px 12px var(--shadow-color);
+    
+    /* display: flex; → Ativa flexbox para centralizar o ícone */
+    display: flex;
+    
+    /* justify-content: center; → Centraliza horizontalmente */
+    justify-content: center;
+    
+    /* align-items: center; → Centraliza verticalmente */
+    align-items: center;
+}
+
+.theme-toggle:hover {
+    /* Efeito ao passar o mouse sobre o botão */
+    transform: scale(1.1);
+    /* Aumenta o tamanho em 10% */
+}
+
+.theme-toggle:active {
+    /* Efeito ao clicar no botão */
+    transform: scale(0.95);
+    /* Reduz o tamanho em 5% para criar efeito de clique */
 }
 
 /* ============================================
@@ -86,18 +195,21 @@ h1 {
     
     /* word-wrap: break-word; → Quebra palavras longas para a próxima linha ao invés de ultrapassar o container */
     word-wrap: break-word;
+    
+    /* color: var(--text-primary); → Usa cor de texto variável conforme tema */
+    color: var(--text-primary);
 }
 
 /* ============================================
    SEÇÃO DE PERFIS
    ============================================ */
 
-nav.profiles {
+.profiles {
     /* width: 100%; → Define largura como 100% do container pai */
     width: 100%;
 }
 
-ul.profiles-list {
+.profiles-list {
     /* list-style: none; → Remove os pontos/bullets padrão da lista (ul/ol) */
     list-style: none;
     
@@ -170,14 +282,17 @@ ul.profiles-list {
     /* object-fit: cover; → Faz a imagem cobrir todo o espaço 200x200, cortando se necessário (sem distorção) */
     object-fit: cover;
     
-    /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); → Adiciona sombra: 0px x, 8px y, 24px blur, 50% opaco preto */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 8px 24px var(--shadow-color); → Adiciona sombra com cor variável conforme tema */
+    box-shadow: 0 8px 24px var(--shadow-color);
     
     /* transition: all 0.3s ease; → Suaviza TODAS as transições da imagem em 0.3s */
     transition: all 0.3s ease;
     
     /* display: block; → Define imagem como bloco (remove espaço extra em baixo) */
     display: block;
+    
+    /* border: 3px solid transparent; → Borda transparente por padrão (aparece ao fazer hover) */
+    border: 3px solid transparent;
 }
 
 /* Estilos aplicados ao passar o mouse OU focar no perfil */
@@ -190,7 +305,7 @@ ul.profiles-list {
     border: 3px solid #e50914;
     
     /* box-shadow: ... → Duas sombras: glow vermelho (0 0 20px) + sombra padrão com 0.8 opacidade */
-    box-shadow: 0 0 20px rgba(229, 9, 20, 0.8), 0 8px 24px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.8), 0 8px 24px var(--shadow-color);
 }
 
 figcaption {
@@ -217,6 +332,9 @@ figcaption {
     
     /* text-overflow: ellipsis; → Adiciona "..." quando texto é cortado (overflow) */
     text-overflow: ellipsis;
+    
+    /* color: var(--text-primary); → Usa cor de texto variável conforme tema */
+    color: var(--text-primary);
 }
 
 /* Estilos para o nome ao passar mouse OU focar no perfil */
@@ -289,7 +407,7 @@ figcaption {
         letter-spacing: 1px;
     }
 
-    ul.profiles-list {
+    .profiles-list {
         /* grid-template-columns: 1fr; → Define uma única coluna em mobile */
         grid-template-columns: 1fr;
         
@@ -354,7 +472,7 @@ figcaption {
         margin-bottom: 35px;
     }
 
-    ul.profiles-list {
+    .profiles-list {
         /* grid-template-columns: repeat(2, 1fr); → Define exatamente 2 colunas iguais */
         grid-template-columns: repeat(2, 1fr);
         
@@ -403,7 +521,7 @@ figcaption {
         margin-bottom: 40px;
     }
 
-    ul.profiles-list {
+    .profiles-list {
         /* grid-template-columns: repeat(2, 1fr); → Define 2 colunas iguais em tablets */
         grid-template-columns: repeat(2, 1fr);
         
@@ -462,7 +580,7 @@ figcaption {
         margin-bottom: 25px;
     }
 
-    ul.profiles-list {
+    .profiles-list {
         /* grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); → 2-3 colunas automáticas em landscape */
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         
@@ -500,7 +618,7 @@ figcaption {
         margin-bottom: 50px;
     }
 
-    ul.profiles-list {
+    .profiles-list {
         /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); → 2-3 colunas conforme espaço disponível */
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         
@@ -546,7 +664,7 @@ figcaption {
         margin-bottom: 55px;
     }
 
-    ul.profiles-list {
+    .profiles-list {
         /* grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); → 2-3 colunas em desktop pequeno */
         grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
         
@@ -574,6 +692,32 @@ figcaption {
 }
 
 /* ============================================
+   DESKTOP - TELAS MAIORES QUE 900px (PERFIS HORIZONTAIS)
+   ============================================ */
+
+@media (min-width: 900px) {
+    .profiles-list {
+        /* display: flex; → Muda de grid para flexbox */
+        display: flex;
+        
+        /* flex-direction: row; → Organiza perfis em linha horizontal */
+        flex-direction: row;
+        
+        /* justify-content: center; → Centraliza perfis horizontalmente */
+        justify-content: center;
+        
+        /* align-items: flex-start; → Alinha perfis ao topo */
+        align-items: flex-start;
+        
+        /* flex-wrap: wrap; → Permite quebra de linha se necessário */
+        flex-wrap: wrap;
+        
+        /* gap: 60px; → Mantém espaço entre perfis */
+        gap: 60px;
+    }
+}
+
+/* ============================================
    DESKTOP PADRÃO (1367px e acima)
    ============================================ */
 
@@ -586,10 +730,7 @@ figcaption {
         margin-bottom: 60px;
     }
 
-    ul.profiles-list {
-        /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); → 3 colunas em desktop padrão */
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        
+    .profiles-list {
         /* gap: 60px; → Gap em 60px */
         gap: 60px;
     }
@@ -631,10 +772,7 @@ figcaption {
         margin-bottom: 80px;
     }
 
-    ul.profiles-list {
-        /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); → 3-4 colunas em ultra-wide */
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        
+    .profiles-list {
         /* gap: 80px; → Gap em 80px para mais espaçamento */
         gap: 80px;
     }
@@ -681,37 +819,23 @@ figcaption {
 }
 
 /* ============================================
-   MODO ESCURO (Dark Mode)
+   ALTO CONTRASTE (High Contrast Mode)
    ============================================ */
 
-@media (prefers-color-scheme: dark) {
-    body {
-        /* background-color: #0f0f0f; → Ajusta para cor ainda mais escura em modo escuro */
-        background-color: #0f0f0f;
-    }
-}
-
-/* ============================================
-   MODO CLARO (Light Mode)
-   ============================================ */
-
-@media (prefers-color-scheme: light) {
-    body {
-        /* background-color: #f5f5f5; → Define fundo claro cinzento */
-        background-color: #f5f5f5;
-        
-        /* color: #141414; → Muda cor do texto para escuro em modo claro */
-        color: #141414;
-    }
-
+@media (prefers-contrast: more) {
     .profile img {
-        /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); → Sombra mais suave em modo claro (opacidade reduzida) */
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        /* border: 2px solid var(--text-primary); → Adiciona borda visível em modo alto contraste */
+        border: 2px solid var(--text-primary);
     }
 
     .profile:hover img {
-        /* box-shadow: ... → Sombra glow e sombra normal ajustadas para modo claro */
-        box-shadow: 0 0 20px rgba(229, 9, 20, 0.6), 0 8px 24px rgba(0, 0, 0, 0.15);
+        /* border: 3px solid #e50914; → Aumenta borda no hover para maior visibilidade */
+        border: 3px solid #e50914;
+    }
+
+    figcaption {
+        /* font-weight: 700; → Aumenta peso do texto para maior contraste */
+        font-weight: 700;
     }
 }
 
@@ -748,29 +872,8 @@ figcaption {
         color: inherit;
     }
 
-    ul.profiles-list {
+    .profiles-list {
         /* gap: 40px; → Gap adequado para impressão */
         gap: 40px;
-    }
-}
-
-/* ============================================
-   ALTO CONTRASTE (High Contrast Mode)
-   ============================================ */
-
-@media (prefers-contrast: more) {
-    .profile img {
-        /* border: 2px solid #ffffff; → Adiciona borda branca visível em modo alto contraste */
-        border: 2px solid #ffffff;
-    }
-
-    .profile:hover img {
-        /* border: 3px solid #e50914; → Aumenta borda no hover para maior visibilidade */
-        border: 3px solid #e50914;
-    }
-
-    figcaption {
-        /* font-weight: 700; → Aumenta peso do texto para maior contraste */
-        font-weight: 700;
     }
 }
